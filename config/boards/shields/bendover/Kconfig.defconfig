@@ -1,0 +1,16 @@
+if SHIELD_BENDOVER_LEFT
+
+config ZMK_BENDOVER
+    default "Bendover"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_BENDOVER_LEFT || SHIELD_BENDOVER_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
