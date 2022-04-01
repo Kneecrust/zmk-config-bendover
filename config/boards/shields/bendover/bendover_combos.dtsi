@@ -1,0 +1,38 @@
+/*                KEY POSITIONS
+
+     ╭────────────────────╮           ╭────────────────────╮
+  ╭──╯  0   1   2   3   4 │           │  5   6   7   8   9 ╰──╮
+  │10  11  12  13  14  15 │           │ 16  17  18  19  20  21│
+  ╰──╮ 22  23  24  25  26 ╰───╮   ╭───╯ 27  28  29  30  31 ╭──╯
+     ╰───────────────╮ 32  33 │   │ 34  35 ╭───────────────╯
+                     ╰────────╯   ╰────────╯        
+*/
+
+compatible = "zmk,combos";
+
+#define COMBO(NAME, TIMEOUT, BINDINGS, KEYPOS, LAYERS) \
+    combo_##NAME { \
+        timeout-ms = <TIMEOUT>; \
+        key-positions = <KEYPOS>; \
+        bindings = <BINDINGS>; \
+        layers = <LAYERS>; \
+    };
+
+/*Outer Left Combos */
+COMBO(lbrc,  40, &kp LBRC,  1 2, BASE)
+COMBO(lbkt,  40, &kp LBKT,  12 13, BASE)
+COMBO(lpar,  40, &kp LPAR,  23 24, BASE)
+/*Inner Left Combos */
+COMBO(rbrc,  40, &kp RBRC,  2 3, BASE)
+COMBO(rbkt,  40, &kp RBKT,  13 14, BASE)
+COMBO(rpar,  40, &kp RPAR,  24 25, BASE)
+/*Outer Right Combos */
+COMBO(equal, 40, &kp EQUAL, 7 8, BASE)
+COMBO(apos, 40, &kp SQT,   18 19, BASE)
+COMBO(dquote, 40, &kp DQT,   29 30, BASE)
+/*Inner Right Combos */
+COMBO(minus, 40, &kp MINUS, 6 7, BASE)
+COMBO(under, 40, &kp UNDER, 17 18, BASE)
+COMBO(bslsh, 40, &kp BSLH,  28 29, BASE)
+
+
