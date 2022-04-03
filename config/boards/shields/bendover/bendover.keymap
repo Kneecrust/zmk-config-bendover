@@ -29,10 +29,10 @@
 
 
                         bindings = <
-                 &kp Q   &kp W        &kp F       &kp P       &kp B                                 &kp J    &kp L       &kp U      &kp Y       &kp ;    
-   &lt NAV LSHFT &kp A   &hm LCTRL R  &hm LALT S  &hm LWIN T  &kp G                                 &kp M    &hm RWIN N  &hm RALT E &hm RCTRL I &kp O  &lt FUNC SHIFT
-                 &kp Z   &kp X        &kp C       &kp D       &kp V                                 &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
-                                                              &lt NUM SPACE  &lt SYM RET    &kp ESC &kp BKSP
+             &kp Q   &kp W        &kp F       &kp P       &kp B                                     &kp J    &kp L       &kp U      &kp Y       &kp ;    
+   &kp LSHFT &kp A   &hm LCTRL R  &hm LALT S  &hm LWIN T  &kp G                                     &kp M    &hm RWIN N  &hm RALT E &hm RCTRL I &kp O  &lt FUNC DEL
+             &kp Z   &kp X        &kp C       &kp D       &kp V                                     &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
+                                                          &lt NUM SPACE  &lt SYM RET    &lt NAV ESC &kp BKSP
                         >;
                 };
 
@@ -47,9 +47,9 @@
 
                         bindings = <
                  XXX     XXX         XXX        XXX       XXX                           XXX       &kp PG_DN   &kp UP     &kp PG_UP   XXX    
-                 &kp A   &kp LCTRL   &kp LALT   &kp LWIN  XXX                           &kp TAB   &kp LEFT    &kp DOWN   &kp RIGHT I XXX  &kp DEL
+     &kp LSHFT   XXX     &kp LCTRL   &kp LALT   &kp LWIN  XXX                           &kp TAB   &kp LEFT    &kp DOWN   &kp RIGHT I XXX  &kp DEL
                  XXX     XXX         XXX        XXX       XXX                           &kp CAPS  &kp HOME    &kp END    &kp INS     XXX 
-                                                          &kp SPACE  &kp RET    &kp ESC &kp BKSP
+                                                          &kp SPACE  &kp RET            &kp BKSP
                         >;
                 };
 
