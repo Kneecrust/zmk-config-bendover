@@ -95,7 +95,7 @@ behaviors {
                 tapping_term_ms = <225>;
                 flavor = "tap-preferred";
                 bindings = <&kp>, <&kp>;
-};
+            };
         };
 
 keymap {
@@ -104,24 +104,32 @@ keymap {
 default_layer {
 // -----------------------------------------------------------------------------------------
 //        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  SHIFT  |
+// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  DEL  |
 //        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
 //                                | SPC | ENT |       | ESC | BKSP| 
 
 
 bindings = <
              &kp Q   &kp W        &kp F       &kp P       &kp B                                     &kp J    &kp L       &kp U      &kp Y       &kp SEMI  
-   &kp LSHFT &kp A   &hm LCTRL R  &hm LALT S  &hm LWIN T  &kp G                                     &kp M    &hm RWIN N  &hm RALT E &hm RCTRL I &kp O  &lt FUNC DEL
+   &kp LSHFT &kp A   &kp R        &kp S       &kp T       &kp G                                     &kp M    &kp N       &kp E      &kp I       &kp O       &kp DEL
              &kp Z   &kp X        &kp C       &kp D       &kp V                                     &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
-                                                          &lt NUM SPACE  &lt SYM RET    &lt NAV ESC &kp BKSP
+                                                          &kp SPACE  &kp RET                &kp ESC &kp BKSP
 >;
+
+
+//bindings = <
+//             &kp Q   &kp W        &kp F       &kp P       &kp B                                     &kp J    &kp L       &kp U      &kp Y       &kp SEMI  
+//   &kp LSHFT &kp A   &hm LCTRL R  &hm LALT S  &hm LWIN T  &kp G                                     &kp M    &hm RWIN N  &hm RALT E &hm RCTRL I &kp O  &lt FUNC DEL
+//             &kp Z   &kp X        &kp C       &kp D       &kp V                                     &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
+//                                                          &lt NUM SPACE  &lt SYM RET    &lt NAV ESC &kp BKSP
+//>;
 };
 
                 
 nav_layer {
 // -----------------------------------------------------------------------------------------
 //        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  SHIFT  |
+// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  DEL  |
 //        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
 //                                | SPC | ENT |       | ESC | BKSP|  
 
