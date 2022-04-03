@@ -2,7 +2,7 @@ file_format: "1"
 id: bendover
 name: Bendover
 type: shield
-url: https://github.com/kneecrust
+url: https://github.com/kneecrust/zmk-config
 requires: [nice_nano_v2]
 exposes: [i2c_oled]
 features:
