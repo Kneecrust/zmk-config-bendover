@@ -90,6 +90,12 @@
             bindings = <&kp BSLH>;
             layers = <0>;
         };
+        combo_btclr {
+            timeout-ms = <30>;
+	    key-positions = <10 21 33 34>;
+            bindings = <&bt BT_CLR>;
+            layers = <0>;
+        };
 
     };
 
