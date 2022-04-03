@@ -19,7 +19,7 @@ compatible = "zmk,combos";
 
 /*Outer Left Combos */
 COMBO(lbrc,  40, &kp LBRC,  1 2, BASE)
-/*COMBO(lbkt,  40, &kp LBKT,  12 13, BASE)*/
+COMBO(lbkt,  40, &kp LBKT,  12 13, BASE)
 COMBO(lpar,  40, &kp LPAR,  23 24, BASE)
 /*Inner Left Combos */
 COMBO(rbrc,  40, &kp RBRC,  2 3, BASE)
