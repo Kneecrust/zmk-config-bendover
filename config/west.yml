@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: kneecrust
-      url-base: https://github.com/kneecrust
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
-      remote: kneecrust
+      remote: zmkfirmware
       revision: main
-      import: config/west.yml
+      import: app/west.yml
   self:
     path: config
