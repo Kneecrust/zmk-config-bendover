@@ -6,6 +6,6 @@ manifest:
     - name: zmk
       remote: kneecrust
       revision: main
-      import: app/west.yml
+      import: config/west.yml
   self:
     path: config
