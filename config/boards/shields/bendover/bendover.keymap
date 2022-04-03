@@ -102,15 +102,6 @@ behaviors {
             flavor = "tap-preferred";                
             bindings = <&kp>, <&kp>;
             };
-
-        lt: layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP";
-            #binding-cells = <2>;
-            tapping_term_ms = <225>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-            };
         };
 
 keymap {
