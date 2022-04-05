@@ -10,10 +10,13 @@
 
 /* Layers */
 #define DEF 0
-#define NAV 1
-#define NUM 2
-#define SYM 3
-#define FUN 4
+#define NUM 1
+#define SYM 2
+#define FUN 3
+#define MED 4
+#define NAV 5
+#define BT 6
+#define QWT 7
 
 / { 
     combos {
@@ -22,79 +25,114 @@
             timeout-ms = <30>;
 	    key-positions = <1 2>;
             bindings = <&kp LBRC>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_lbkt {
             timeout-ms = <30>;
 	    key-positions = <12 13>;
             bindings = <&kp LBKT>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_lpar {
             timeout-ms = <30>;
 	    key-positions = <23 24>;
             bindings = <&kp LPAR>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_rbrc {
             timeout-ms = <30>;
 	    key-positions = <2 3>;
             bindings = <&kp RBRC>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_rbkt {
             timeout-ms = <30>;
 	    key-positions = <13 14>;
             bindings = <&kp RBKT>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_rpar {
             timeout-ms = <30>;
 	    key-positions = <24 25>;
             bindings = <&kp RPAR>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_equal {
             timeout-ms = <30>;
 	    key-positions = <7 8>;
             bindings = <&kp EQUAL>;
-            layers = <0>;
+            layers = <0 7>;
         };
-        combo_apos {
+        combo_bslsh {
             timeout-ms = <30>;
 	    key-positions = <18 19>;
-            bindings = <&kp SQT>;
-            layers = <0>;
+            bindings = <&kp BSLH>;
+            layers = <0 7>;
         };
         combo_dquote {
             timeout-ms = <30>;
 	    key-positions = <29 30>;
             bindings = <&kp DQT>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_minus {
             timeout-ms = <30>;
 	    key-positions = <6 7>;
             bindings = <&kp MINUS>;
-            layers = <0>;
+            layers = <0 7>;
         };
         combo_under {
             timeout-ms = <30>;
 	    key-positions = <17 18>;
             bindings = <&kp UNDER>;
-            layers = <0>;
+            layers = <0 7>;
         };
-        combo_bslsh {
+        combo_apos {
             timeout-ms = <30>;
 	    key-positions = <28 29>;
-            bindings = <&kp BSLH>;
-            layers = <0>;
+            bindings = <&kp SQT>;
+            layers = <0 7>;
         };
-        combo_btclr {
+        combo_btlyr {
             timeout-ms = <30>;
-	    key-positions = <10 21 33 34>;
-            bindings = <&bt BT_CLR>;
-            layers = <0>;
+	    key-positions = <10 21>;
+            bindings = <&tog BT>;
+        };
+        combo_btclr_left {
+            timeout-ms = <30>;
+	    key-positions = <25 26;
+            bindings = <&BT_CLR>;
+            layers = <BT>;
+        };
+        combo_btclr_right {
+            timeout-ms = <30>;
+	    key-positions = <27 28>;
+            bindings = <&BT_CLR>;
+            layers = <BT>;
+        };
+         combo_boot_left{
+            timeout-ms = <30>;
+	    key-positions = <3 4>;
+            bindings = <>;
+            layers = <BT>;
+        };
+         combo_boot_right{
+            timeout-ms = <30>;
+	    key-positions = <5 6>;
+            bindings = <>;
+            layers = <BT>;
+        };
+        combo_qwrtylyr {
+            timeout-ms = <30>;
+	    key-positions = <15 16>;
+            bindings = <&tog QWT>;
+            layers = <0 7>;
+        };
+        combo_caps {
+            timeout-ms = <30>;
+	    key-positions = <14 17>;
+            bindings = <&kp CAPS>;
+            layers = <0 7>;
         };
 
     };
@@ -114,92 +152,139 @@ keymap {
                 compatible = "zmk,keymap";
 
 default_layer {
-// -----------------------------------------------------------------------------------------
+// LAYER 0----------------------------------------------------------------------------------
 //        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  DEL  |
+// | NAV  |  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  BKSPC  |
 //        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
-//                                | SPC | ENT |       | ESC | BKSP| 
-
-
-//bindings = <
-//             &kp Q   &kp W        &kp F       &kp P       &kp B                                     &kp J    &kp L       &kp U      &kp Y       &kp SEMI  
-//   &kp LSHFT &kp A   &kp R        &kp S       &kp T       &kp G                                     &kp M    &kp N       &kp E      &kp I       &kp O       &kp DEL
-//             &kp Z   &kp X        &kp C       &kp D       &kp V                                     &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
-//                                                          &kp SPACE  &kp RET                &kp ESC &kp BKSP
-//>;
-
+//                                | SPC | ENT |       | ESC | MED| 
 
 bindings = <
-             &kp Q   &kp W        &kp F       &kp P       &kp B                                     &kp J    &kp L       &kp U      &kp Y       &kp SEMI  
-   &kp LSHFT &kp A   &hm LCTRL R  &hm LALT S  &hm LWIN T  &kp G                                     &kp M    &hm RWIN N  &hm RALT E &hm RCTRL I &kp O  &lt FUN DEL
-             &kp Z   &kp X        &kp C       &kp D       &kp V                                     &kp K    &kp H       &kp COMMA  &kp DOT     &kp FSLH 
-                                                          &lt NUM SPACE  &lt SYM RET    &lt NAV ESC &kp BKSP
->;
-};
-
-                
-nav_layer {
-// -----------------------------------------------------------------------------------------
-//        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  DEL  |
-//        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
-//                                | SPC | ENT |       | ESC | BKSP|  
-
-
-bindings = <
-                 &trans     &trans      &trans     &trans    &trans                           &trans    &kp PG_DN   &kp UP     &kp PG_UP   &trans    
-     &kp LSHFT   &trans     &kp LCTRL   &kp LALT   &kp LWIN  &trans                           &kp TAB   &kp LEFT    &kp DOWN   &kp RIGHT   &trans  &kp DEL
-                 &trans     &trans      &trans     &trans    &trans                           &kp CAPS  &kp HOME    &kp END    &kp INS     &trans 
-                                                             &kp SPACE &kp RET        &trans  &kp BKSP
->;
+            &kp Q        &kp W        &kp F       &kp P        &kp B                                      &kp J    &kp L        &kp U      &kp Y       &kp SEMI  
+   &mo NAV  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm SHIFT T  &kp G                                      &kp M    &hm SHIFT N  &hm RALT E &hm RCTRL I &hm RWIN O   &hm DEL BKSP
+            &kp Z        &kp X        &kp C       &kp D        &kp V                                      &kp K    &kp H        &kp COMMA  &kp DOT     &kp FSLH 
+                                                               &lt NUM SPACE  &lt SYM RET     &lt NAV ESC &mo MED
+>; 
 };
 
 
 num_layer {
-// -----------------------------------------------------------------------------------------
-//        |     |     |     |     |     |                   |  *  |  7   |  8  |  9  |  +  | 
-// | SHIFT| SPC | CTL | ALT | WIN |     |                   |  -  |  0   |  1  |  2  |  3  |  =  |
-//        |     |     |     |     |     |                   |  /  |  4   |  5  |  6  |  /  | 
-//                                | SPC | ENT |       | ESC | BKSP| 
+// LAYER 1---------------------------------------------------------------------------------
+//        |     |  -  |  +  |  /  |  *  |                   |     |  7  |  8  |  9  |     | 
+// | NAV  | SPC | CTL | ALT |SHIFT|  $  |                   |     |  4  |  5  |  6  | SPC | BKSP |
+//        |     |     |     |     |     |                   |  0  |  1  |  2  |  3  |     | 
+//                                |     | ENT |       | ESC | BKSP| 
 
 bindings = <
-                 &trans        &trans         &trans        &trans       &trans                           &kp STAR   &kp N7   &kp N8   &kp N9   &kp PLUS    
-   &kp LSHFT     &kp SPACE     &kp LCTRL      &kp LALT      &kp LWIN     &trans                           &kp MINUS  &kp N0   &kp N1   &kp N2   &kp N3    &kp EQUAL
-                 &trans        &trans         &trans        &trans       &trans                           &kp FSLH   &kp N4   &kp N5   &kp N6   &kp FSLH 
-                                                                         &trans   &kp RET         &kp ESC &kp BKSP
+             &none        &MINUS        &PLUS        &FSLH       &kp STAR                        &none   &kp N7   &kp N8   &kp N9   &none    
+   &mo NAV   &kp LWIN     &kp LCTRL     &kp LALT     &kp SHIFT   &kp DLLR                        &none   &kp N4   &kp N5   &kp N6   &kp SPC  &kp BKSP
+             &none        &none         &none        &none       &none                           &kp N0  &kp N1   &kp N2   &kp N3   &None 
+                                                                 &none  &kp RET          &kp ESC &mo MED
 >;
 };
         
 
 sym_layer {
-// -----------------------------------------------------------------------------------------
-//        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  SHIFT  |
-//        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
-//                                | SPC | ENT |       | ESC | BKSP| 
+// LAYER 2----------------------------------------------------------------------------------
+//        |     |     |     |     |     |                   |  |  |  &  |  *  |  (  |  ~  |
+// | NAV  | WIN | CTL | ALT |SHIFT|     |                   |  _  |  $  |  %  |  ^  |  \  | BKSP |
+//        |     |     |     |     |     |                   |  )  |  !  |  @  |  #  |  `  | 
+//                                | SPC |     |       | ESC | MED | 
 
 bindings = <
-                 &trans   &trans      &trans     &trans    &trans                           &kp PIPE   &kp AMPS   &kp STAR   &kp LPAR  &kp TILDE   
-   &kp LSHFT     &kp RET  &kp LCTRL   &kp LALT   &kp LWIN  &trans                           &kp UNDER  &kp RPAR   &kp EXCL   &kp AT    &kp HASH  &kp EQUAL
-                 &trans   &trans      &kp C      &trans    &trans                           &kp FSLH   &kp DLLR   &kp PRCNT  &kp CARET &kp GRAVE
-                                                 &kp SPACE &trans                   &kp ESC &kp BKSP
+            &none    &none      &none     &none      &none                           &kp PIPE   &kp AMPS   &kp STAR   &kp LPAR  &kp TILDE   
+   &mo NAV  &kp LWIN &kp LCTRL  &kp LALT  &kp SHIFT  &none                           &kp UNDER  &kp DLLR   &kp PRCNT  &kp CARET &kp BSLH  &kp BKSP
+            &none    &none      &kp C     &none      &none                           &kp RPAR   &kp EXCL   &kp AT     &kp HASH  &kp GRAVE
+                                                     &kp SPACE  &none       &kp ESC  &mo MED
 >;
 };
                 
                 
 fun_layer {
-// -----------------------------------------------------------------------------------------
-//        |  Q  |  W  |  F  |  P  |  B  |                   |  J  |  L   |  U  |  Y  |  ;  | 
-// | SHIFT|  A  |  R  |  S  |  T  |  G  |                   |  M  |  N   |  E  |  I  |  O  |  SHIFT  |
-//        |  Z  |  X  |  C  |  D  |  V  |                   |  K  |  H   |  ,  |  .  |  /  | 
-//                                | SPC | ENT |       | ESC | BKSP| 
+// LAYER 3----------------------------------------------------------------------------------
+//        | F12 | F11 | F10 | F9  |     |                   |     |     |     |     |     | 
+// | PSCRN| F8  | F7  | F6  | F5  |     |                   |     |SHIFT| ALT | CTRL| WIN |    |
+//        | F4  | F3  | F2  | F1  |     |                   |     |     |     |     |     | 
+//                                | SPC | ENT |       |     | MED | 
 
 bindings = <
-                 &kp F8   &kp F7   &kp F6   &kp F5  &trans                              &trans  &trans     &trans     &trans    &trans   
-   &kp PSCRN     &kp F3   &kp F2   &kp F1   &kp F4  &trans                              &trans  &kp RWIN   &kp RALT   &kp RCTRL &trans &trans  
-                 &kp F12  &kp F11  &kp F10  &kp F9  &trans                              &trans  &trans     &trans     &trans    &trans
-                                                    &kp SPACE  &kp RET          &kp ESC &kp BKSP
+              &kp F8   &kp F7   &kp F6   &kp F5  &none                              &none  &none     &none     &none     &none   
+   &kp PSCRN  &kp F3   &kp F2   &kp F1   &kp F4  &none                              &none  &kp SHIFT &kp RALT  &kp RCTRL &kp RWIN  &none  
+              &kp F12  &kp F11  &kp F10  &kp F9  &none                              &none  &none     &none     &none     &none
+                                                 &kp SPACE  &kp RET         &kp ESC &mo MED
 >;
-};        
+};     
+
+
+media_layer {
+// LAYER 4----------------------------------------------------------------------------------
+//        |     |     |     |     |     |                   |     | VDWN| VUP | MUTE|     | 
+// |      | WIN | CTRL| ALT |SHIFT|     |                   |     | PLAY| PREV| NXT |     |     |
+//        |     |     |     |     |     |                   |     |     |     |     |     | 
+//                                | SPC | ENT |       | ESC |     |  
+
+
+bindings = <
+              &none     &none      &none     &none     &none                           &none    &kp C_VOL_DN  &kp C_VOL_UP  &kp MUTE    &none    
+     &mo NAV  &kp LWIN  &kp LCTRL  &kp LALT  &kp SHIFT &none                           &none    &kp PLAY      &kp C_PREV    &kp C_NEXT  &none  &none
+              &none     &none      &none     &none     &none                           &none    &none         &none         &none       &none 
+                                                       &kp SPACE &kp RET      &kp ESC  &none
+>;
+};
+
+
+nav_layer {
+// LAYER 5----------------------------------------------------------------------------------
+//        |     |     |     |     |     |                   |     | PGDN|  ↑  | PGUP|     | 
+// |      | WIN | CTRL| ALT |SHIFT|     |                   | TAB |   ← |  ↓  |  →  |     |  DEL  |
+//        |     |     |     |     |     |                   |     | END |  ,  | INS |     | 
+//                                | SPC | ENT |       | ESC | MED |  
+
+
+bindings = <
+               &none     &none      &none     &none     &none                           &none     &kp PG_DN   &kp UP     &kp PG_UP   &none    
+     &mo NAV   &kp LWIN  &kp LCTRL  &kp LALT  &kp SHIFT &none                           &kp TAB   &kp LEFT    &kp DOWN   &kp RIGHT   &none  &kp DEL
+               &none     &none      &none     &none     &none                           &kp CAPS  &kp HOME    &kp END    &kp INS     &none 
+                                                        &kp SPACE &kp RET        &none  &mo MED
+>;
+};
+
+
+bluetooth_layer {
+// LAYER 6----------------------------------------------------------------------------------
+//       |     |     |     | BOOT| BOOT|                   |BTCLR|BTCLR|     |     |     | 
+// | BT  |     |     |     |     |     |                   |     | P1  | P2  | P3  |     | BT |
+//       |     |     |     |     |     |                   |     |     |     |     |     | 
+//                               |     |     |       |     |     |  
+
+
+bindings = <
+            &none     &none      &none     &none     &none                           &none  &none         &none         &none         &none    
+     &none  &none     &none      &none     &none     &none                           &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
+            &none     &none      &none     &none     &none                           &none  &none         &none         &none         &none 
+                                                     &none   &none           &none   &none
+>;
+};
+
+
+qwerty_layer {
+// LAYER 7----------------------------------------------------------------------------------
+//        |  Q  |  W  |  E  |  R  |  T  |                   |  Y  |  U  |  I  |  O  |  P  | 
+// | NAV  |  A  |  S  |  D  |  F  |  G  |                   |  H  |  J  |  K  |  L  |  ;  |  BKSPC  |
+//        |  Z  |  X  |  C  |  V  |  D  |                   |  N  |  M  |  ,  |  .  |  /  | 
+//                                | SPC | ENT |       | ESC | MED| 
+
+bindings = <
+            &kp Q        &kp W        &kp E       &kp R        &kp T                                      &kp Y    &kp U        &kp I      &kp O       &kp P  
+   &mo NAV  &hm LWIN A   &hm LCTRL S  &hm LALT D  &hm SHIFT F  &kp G                                      &kp H    &hm SHIFT J  &hm RALT K &hm RCTRL L &hm RWIN SEMI  &kp BKSP
+            &kp Z        &kp X        &kp C       &kp V        &kp D                                      &kp N    &kp M        &kp COMMA  &kp DOT     &kp FSLH 
+                                                               &lt NUM SPACE  &lt SYM RET     &lt NAV ESC &mo MED
+>; 
+};
+
+
 };
 };
+
+
+
+// Ideas: Bluetooth layer under double outer pinkies & Media layer under double home index. Both toggle instead of layer tap. Qwerty layer as backup?
