@@ -101,25 +101,25 @@
         combo_btclr_left {
             timeout-ms = <30>;
 	    key-positions = <25 26;
-            bindings = <&BT_CLR>;
+            bindings = <&bt BT_CLR>;
             layers = <BT>;
         };
         combo_btclr_right {
             timeout-ms = <30>;
 	    key-positions = <27 28>;
-            bindings = <&BT_CLR>;
+            bindings = <&bt BT_CLR>;
             layers = <BT>;
         };
          combo_boot_left{
             timeout-ms = <30>;
 	    key-positions = <3 4>;
-            bindings = <>;
+            bindings = <&bootloader>;
             layers = <BT>;
         };
          combo_boot_right{
             timeout-ms = <30>;
 	    key-positions = <5 6>;
-            bindings = <>;
+            bindings = <&bootloader>;
             layers = <BT>;
         };
         combo_qwrtylyr {
