@@ -100,7 +100,7 @@
         };
         combo_btclr_left {
             timeout-ms = <30>;
-	    key-positions = <25 26;
+	    key-positions = <25 26>;
             bindings = <&bt BT_CLR>;
             layers = <BT>;
         };
