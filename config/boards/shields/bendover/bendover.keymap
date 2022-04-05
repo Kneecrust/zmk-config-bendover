@@ -160,9 +160,9 @@ default_layer {
 
 bindings = <
             &kp Q        &kp W        &kp F       &kp P        &kp B                                      &kp J    &kp L        &kp U      &kp Y       &kp SEMI  
-   &mo NAV  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm SHIFT T  &kp G                                      &kp M    &hm SHIFT N  &hm RALT E &hm RCTRL I &hm RWIN O   &hm DEL BKSP
+   &mo NAV  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm SHIFT T  &kp G                                      &kp M    &hm SHIFT N  &hm RALT E &hm RCTRL I &hm RWIN O   &kp BKSP
             &kp Z        &kp X        &kp C       &kp D        &kp V                                      &kp K    &kp H        &kp COMMA  &kp DOT     &kp FSLH 
-                                                               &lt NUM SPACE  &lt SYM RET     &lt NAV ESC &mo MED
+                                                               &lt NUM SPACE  &lt SYM RET         &kp ESC &mo MED
 >; 
 };
 
@@ -197,7 +197,7 @@ bindings = <
                                                      &kp SPACE  &none       &kp ESC  &mo MED
 >;
 };
-                
+           
                 
 fun_layer {
 // LAYER 3----------------------------------------------------------------------------------
