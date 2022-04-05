@@ -160,7 +160,7 @@ default_layer {
 
 bindings = <
             &kp Q        &kp W        &kp F       &kp P        &kp B                                      &kp J    &kp L        &kp U      &kp Y       &kp SEMI  
-   &mo NAV  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm SHIFT T  &kp G                                      &kp M    &hm SHIFT N  &hm RALT E &hm RCTRL I &hm WIN O   &kp BSPC
+   &mo NAV  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm SHIFT T  &kp G                                      &kp M    &hm SHIFT N  &hm RALT E &hm RCTRL I &hm RWIN O   &kp BSPC
             &kp Z        &kp X        &kp C       &kp D        &kp V                                      &kp K    &kp H        &kp COMMA  &kp DOT     &kp FSLH 
                                                                &lt NUM SPACE  &lt SYM RET         &kp ESC &mo MED
 >; 
