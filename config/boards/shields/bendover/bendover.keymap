@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/output.h>
 
 /* Layers */
 #define DEF 0
@@ -15,8 +16,13 @@
 #define FUN 3
 #define MED 4
 #define NAV 5
-#define BT 6
+#define SYS 6
 #define QWT 7
+
+/* custom combo's */
+#define X_CUT       LC(X)
+#define X_COPY      LC(C)
+#define X_PAST      LC(V)
 
 / { 
     combos {
@@ -93,22 +99,10 @@
             bindings = <&kp SQT>;
             layers = <0 7>;
         };
-        combo_btlyr {
+        combo_syslyr {
             timeout-ms = <30>;
 	    key-positions = <10 21>;
-            bindings = <&tog BT>;
-        };
-        combo_btclr_left {
-            timeout-ms = <30>;
-	    key-positions = <25 26>;
-            bindings = <&bt BT_CLR>;
-            layers = <BT>;
-        };
-        combo_btclr_right {
-            timeout-ms = <30>;
-	    key-positions = <27 28>;
-            bindings = <&bt BT_CLR>;
-            layers = <BT>;
+            bindings = <&tog SYS>;
         };
          combo_boot_left{
             timeout-ms = <30>;
@@ -142,7 +136,8 @@ behaviors {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping_term_ms = <225>;
+            tapping_term_ms = <300>;
+            quick-tap-ms = <0>;
             flavor = "tap-preferred";                
             bindings = <&kp>, <&kp>;
             };
@@ -159,10 +154,10 @@ default_layer {
 //                                | SPC | ENT |       | ESC | BSPC MED| 
 
 bindings = <
-                &kp Q        &kp W        &kp F       &kp P        &kp B                                      &kp J    &kp L        &kp U      &kp Y       &kp SEMI  
-   &lt NAV TAB  &hm LWIN A   &hm LCTRL R  &hm LALT S  &hm LSHIFT T &kp G                                      &kp M    &hm RSHIFT N &hm RALT E &hm RCTRL I &hm RWIN O  &kp DEL
-                &kp Z        &kp X        &kp C       &kp D        &kp V                                      &kp K    &kp H        &kp COMMA  &kp DOT     &kp FSLH 
-                                                                   &lt NUM SPACE  &lt SYM RET         &kp ESC &lt MED BSPC
+                &kp Q        &kp W        &kp F        &kp P        &kp B                                      &kp J    &kp L        &kp U      &kp Y       &kp SEMI  
+   &lt NAV TAB  &hm LWIN A   &hm LCTRL R  &hm LALT S   &hm LSHIFT T &kp G                                      &kp M    &hm RSHIFT N &hm RALT E &hm RCTRL I &hm RWIN O  &kp DEL
+                &kp Z        &hm X_CUT X  &hm X_COPY C &kp D        &hm X_PAST V                               &kp K    &kp H        &kp COMMA  &kp DOT     &kp FSLH 
+                                                                    &lt NUM SPACE  &lt SYM RET     &lt FUN ESC &lt MED BSPC
 >; 
 };
 
@@ -178,7 +173,7 @@ bindings = <
                  &none        &kp MINUS     &kp PLUS     &kp FSLH    &kp STAR                        &none   &kp N7   &kp N8   &kp N9   &none    
    &lt NAV TAB   &kp LWIN     &kp LCTRL     &kp LALT     &kp LSHIFT  &kp DLLR                        &none   &kp N4   &kp N5   &kp N6   &none  &kp DEL
                  &none        &none         &none        &none       &none                           &kp N0  &kp N1   &kp N2   &kp N3   &none 
-                                                                     &none  &kp RET          &kp ESC &lt MED BSPC
+                                                                     &none  &kp RET      &lt FUN ESC &lt MED BSPC
 >;
 };
         
@@ -194,7 +189,7 @@ bindings = <
                 &none    &none      &none     &none       &none                           &kp PIPE   &kp AMPS   &kp STAR   &kp LPAR  &kp TILDE   
    &lt NAV TAB  &kp LWIN &kp LCTRL  &kp LALT  &kp LSHIFT  &none                           &kp UNDER  &kp DLLR   &kp PRCNT  &kp CARET &kp BSLH  &kp DEL
                 &none    &none      &kp C     &none       &none                           &kp RPAR   &kp EXCL   &kp AT     &kp HASH  &kp GRAVE
-                                                          &kp SPACE  &none       &kp ESC  &lt MED BSPC
+                                                          &kp SPACE  &none    &lt FUN ESC &lt MED BSPC
 >;
 };
            
@@ -210,7 +205,7 @@ bindings = <
               &kp F8   &kp F7   &kp F6   &kp F5  &none                              &none  &none      &none     &none     &none   
    &kp PSCRN  &kp F3   &kp F2   &kp F1   &kp F4  &none                              &none  &kp RSHIFT &kp RALT  &kp RCTRL &kp RWIN  &none  
               &kp F12  &kp F11  &kp F10  &kp F9  &none                              &none  &none      &none     &none     &none
-                                                 &kp SPACE  &kp RET         &kp ESC &lt MED BSPC
+                                                 &kp SPACE  &kp RET          &none  &lt MED BSPC
 >;
 };     
 
@@ -227,7 +222,7 @@ bindings = <
                   &none     &none      &none     &none      &none                           &none    &kp C_VOL_DN        &kp C_VOL_UP  &kp C_MUTE  &none    
      &lt NAV TAB  &kp LWIN  &kp LCTRL  &kp LALT  &kp LSHIFT &none                           &none    &hm C_PAUSE C_PLAY  &kp C_PREV    &kp C_NEXT  &none  &none
                   &none     &none      &none     &none      &none                           &none    &none               &none         &none       &none 
-                                                            &kp SPACE &kp RET      &kp ESC  &none
+                                                            &kp SPACE &kp RET   &lt FUN ESC &none
 >;
 };
 
@@ -244,24 +239,24 @@ bindings = <
              &none     &none      &none     &none      &none                           &none     &kp PG_DN   &kp UP     &kp PG_UP   &none    
      &none   &kp LWIN  &kp LCTRL  &kp LALT  &kp LSHIFT &none                           &kp TAB   &kp LEFT    &kp DOWN   &kp RIGHT   &none  &kp DEL
              &none     &none      &none     &none      &none                           &none     &kp HOME    &kp END    &kp INS     &none 
-                                                       &kp SPACE &kp RET      &kp ESC  &lt MED BSPC
+                                                       &kp SPACE &kp RET   &lt FUN ESC &lt MED BSPC
 >;
 };
 
 
-bluetooth_layer {
+system_layer {
 // LAYER 6----------------------------------------------------------------------------------
-//       |     |     |     | BOOT| BOOT|                   |BOOT |BOOT |     |     |     | 
-// | BT  |     |     |     |     |     |                   |     | P1  | P2  | P3  |     | BT |
-//       |     |     |     |BTCLR|BTCLR|                   |BTCLR|BTCLR|     |     |     | 
-//                               |     |     |       |     |     |  
-// BTCLR & BOOT are defined under Combos at the top
+//       |     |     |     | BOOT| BOOT|                   |BOOT |BOOT |    |    |    | 
+// | BT  |     |     |     |  BLE|  USB|                   |USB  |BLE  |    |    |    | BT |
+//       |     |     |     |     |BTCLR|                   |BTCLR|  P0 | P1 | P2 |    | 
+//                               |     |RESET|       |RESET|     |  
+//  BOOT is defined under Combos at the top
 
 bindings = <
-            &none     &none      &none     &none     &none                           &none  &none         &none         &none         &none    
-     &none  &none     &none      &none     &none     &none                           &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
-            &none     &none      &none     &none     &none                           &none  &none         &none         &none         &none 
-                                                     &none   &none           &none   &none
+            &none     &none      &none     &none            &none                           &none           &none         &none         &none         &none    
+     &none  &none     &none      &none     &out OUT_BLE     &out OUT_USB                    &out OUT_USB    &out OUT_BLE  &none         &none         &none   &none
+            &none     &none      &none     &none            &bt BT_CLR                      &bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none 
+                                                            &none   &reset          &reset  &none
 >;
 };
 
@@ -277,7 +272,7 @@ bindings = <
                 &kp Q        &kp W        &kp E       &kp R         &kp T                                      &kp Y    &kp U         &kp I      &kp O       &kp P  
    &lt NAV TAB  &hm LWIN A   &hm LCTRL S  &hm LALT D  &hm LSHIFT F  &kp G                                      &kp H    &hm RSHIFT J  &hm RALT K &hm RCTRL L &hm RWIN SEMI  &kp DEL
                 &kp Z        &kp X        &kp C       &kp V         &kp D                                      &kp N    &kp M         &kp COMMA  &kp DOT     &kp FSLH 
-                                                                    &lt NUM SPACE  &lt SYM RET     &lt NAV ESC &lt MED BSPC
+                                                                    &lt NUM SPACE  &lt SYM RET     &lt FUN ESC &lt MED BSPC
 >; 
 };
 
@@ -285,6 +280,3 @@ bindings = <
 };
 };
 
-
-
-// IMPLEMENTED => Ideas: Bluetooth layer under double outer pinkies & Media layer under double home index. Both toggle instead of layer tap. Qwerty layer as backup?
